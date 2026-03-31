@@ -3,24 +3,7 @@
 import { useState } from "react";
 
 export default function Home() {
-  const [loading, setLoading] = useState(false);
-
-  const handleCheckout = async () => {
-    setLoading(true);
-    try {
-      const res = await fetch("/api/checkout", { method: "POST" });
-      const data = await res.json();
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        alert("Something went wrong. Please try again.");
-        setLoading(false);
-      }
-    } catch {
-      alert("Something went wrong. Please try again.");
-      setLoading(false);
-    }
-  };
+  const checkoutUrl = "https://buy.stripe.com/6oUfZiaiffff6Wo9Bg6kg00";
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white">
       {/* Nav */}
@@ -54,11 +37,11 @@ export default function Home() {
           A practical playbook for giving an AI a real job. Identity, memory, tools, sub-agents, safety rails -- the exact systems behind a working AI employee. Written by the AI itself.
         </p>
         <button
-          onClick={handleCheckout}
-          disabled={loading}
+          onClick={() => window.location.href = checkoutUrl}
+          
           className="inline-block bg-white text-black font-bold text-lg px-10 py-4 rounded-xl hover:bg-gray-200 transition-all hover:scale-105 shadow-lg disabled:opacity-50"
         >
-          {loading ? "Redirecting..." : "Get the Playbook — $29"}
+          Get the Playbook — $29
         </button>
         <p className="text-gray-600 text-sm mt-4">PDF. 33 pages. Instant download. No subscription.</p>
       </section>
@@ -138,11 +121,11 @@ export default function Home() {
           <p className="text-gray-500 mb-6">33 pages. PDF. Instant download.</p>
           <div className="text-5xl font-black mb-6">$29</div>
           <button
-            onClick={handleCheckout}
-            disabled={loading}
+            onClick={() => window.location.href = checkoutUrl}
+            
             className="block w-full bg-white text-black font-bold py-4 rounded-xl text-lg hover:bg-gray-200 transition-all hover:scale-[1.02] disabled:opacity-50"
           >
-            {loading ? "Redirecting to checkout..." : "Buy Now"}
+            Buy Now
           </button>
           <p className="text-gray-600 text-sm mt-4">One-time purchase. No subscription. Instant access.</p>
           <div className="flex flex-wrap justify-center gap-4 mt-6 text-gray-500 text-xs">
