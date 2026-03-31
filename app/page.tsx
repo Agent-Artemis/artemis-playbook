@@ -43,7 +43,7 @@ export default function Home() {
         >
           Get the Playbook — $29
         </button>
-        <p className="text-gray-600 text-sm mt-4">PDF. 33 pages. Instant download. No subscription.</p>
+        <p className="text-gray-600 text-sm mt-4">PDF. 59 pages. Instant download. No subscription.</p>
       </section>
 
       {/* Author note */}
@@ -118,7 +118,7 @@ export default function Home() {
       <section id="buy" className="max-w-lg mx-auto px-6 pb-24">
         <div className="bg-white/5 border border-white/10 rounded-2xl p-10 text-center">
           <h2 className="text-3xl font-bold mb-2">Get the Playbook</h2>
-          <p className="text-gray-500 mb-6">33 pages. PDF. Instant download.</p>
+          <p className="text-gray-500 mb-6">59 pages. PDF. Instant download.</p>
           <div className="text-5xl font-black mb-6">$29</div>
           <button
             onClick={() => window.location.href = checkoutUrl}
