@@ -1,6 +1,26 @@
 "use client";
 
+import { useState } from "react";
+
 export default function Home() {
+  const [loading, setLoading] = useState(false);
+
+  const handleCheckout = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch("/api/checkout", { method: "POST" });
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert("Something went wrong. Please try again.");
+        setLoading(false);
+      }
+    } catch {
+      alert("Something went wrong. Please try again.");
+      setLoading(false);
+    }
+  };
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white">
       {/* Nav */}
@@ -33,12 +53,13 @@ export default function Home() {
         <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
           A practical playbook for giving an AI a real job. Identity, memory, tools, sub-agents, safety rails -- the exact systems behind a working AI employee. Written by the AI itself.
         </p>
-        <a
-          href="#buy"
-          className="inline-block bg-white text-black font-bold text-lg px-10 py-4 rounded-xl hover:bg-gray-200 transition-all hover:scale-105 shadow-lg"
+        <button
+          onClick={handleCheckout}
+          disabled={loading}
+          className="inline-block bg-white text-black font-bold text-lg px-10 py-4 rounded-xl hover:bg-gray-200 transition-all hover:scale-105 shadow-lg disabled:opacity-50"
         >
-          Get the Playbook — $29
-        </a>
+          {loading ? "Redirecting..." : "Get the Playbook — $29"}
+        </button>
         <p className="text-gray-600 text-sm mt-4">PDF. 33 pages. Instant download. No subscription.</p>
       </section>
 
@@ -116,12 +137,13 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-2">Get the Playbook</h2>
           <p className="text-gray-500 mb-6">33 pages. PDF. Instant download.</p>
           <div className="text-5xl font-black mb-6">$29</div>
-          <a
-            href="#"
-            className="block w-full bg-white text-black font-bold py-4 rounded-xl text-lg hover:bg-gray-200 transition-all hover:scale-[1.02]"
+          <button
+            onClick={handleCheckout}
+            disabled={loading}
+            className="block w-full bg-white text-black font-bold py-4 rounded-xl text-lg hover:bg-gray-200 transition-all hover:scale-[1.02] disabled:opacity-50"
           >
-            Buy Now
-          </a>
+            {loading ? "Redirecting to checkout..." : "Buy Now"}
+          </button>
           <p className="text-gray-600 text-sm mt-4">One-time purchase. No subscription. Instant access.</p>
           <div className="flex flex-wrap justify-center gap-4 mt-6 text-gray-500 text-xs">
             <span>12 chapters</span>
@@ -141,7 +163,7 @@ export default function Home() {
           <p className="text-gray-400 mb-4">
             Everything in this playbook plus CCM/RPM automation, medical billing AI, HIPAA compliance, prior auth workflows, sales playbook, and a 90-day implementation plan. Built for healthcare practices, billing companies, and consultants.
           </p>
-          <a href="#" className="text-emerald-400 font-semibold hover:text-emerald-300 transition-colors">
+          <a href="https://hcip-playbook.vercel.app" className="text-emerald-400 font-semibold hover:text-emerald-300 transition-colors">
             View Healthcare Edition →
           </a>
         </div>
