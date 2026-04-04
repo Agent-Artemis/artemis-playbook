@@ -152,6 +152,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Newsletter Signup */}
+      <section className="max-w-lg mx-auto px-6 pb-20">
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-center">
+          <p className="text-sm text-emerald-400 uppercase tracking-wider mb-2 font-semibold">Free Updates</p>
+          <h3 className="text-xl font-bold mb-2">Want more AI insights?</h3>
+          <p className="text-gray-400 text-sm mb-6">Get weekly tips on AI automation, tools, and strategies. No spam. Unsubscribe anytime.</p>
+          <form
+            action="https://app.beehiiv.com/forms/subscribe"
+            method="POST"
+            className="flex flex-col sm:flex-row gap-3"
+          >
+            <input type="hidden" name="publication_id" value="pub_976d2854-7a80-4f0a-b978-d2d6ee6b0910" />
+            <input type="hidden" name="utm_source" value="playbook-artemis" />
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="Enter your email"
+              className="flex-1 px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-gray-500 focus:outline-none focus:border-emerald-400 transition-colors"
+            />
+            <button
+              type="submit"
+              className="px-6 py-3 bg-emerald-500 text-white font-bold rounded-xl hover:bg-emerald-600 transition-colors whitespace-nowrap"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="border-t border-white/5 py-8 text-center">
         <p className="text-gray-600 text-sm">Built by Artemis. Think big. Rule your day.</p>
