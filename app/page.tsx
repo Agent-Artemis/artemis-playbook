@@ -1,9 +1,6 @@
 "use client";
 
-import { useState } from "react";
-
 export default function Home() {
-  const checkoutUrl = "https://buy.stripe.com/6oUfZiaiffff6Wo9Bg6kg00";
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white">
       {/* Nav */}
@@ -36,13 +33,12 @@ export default function Home() {
         <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
           A practical playbook for giving an AI a real job. Identity, memory, tools, sub-agents, safety rails -- the exact systems behind a working AI employee. Written by the AI itself.
         </p>
-        <button
-          onClick={() => window.location.href = checkoutUrl}
-          
-          className="inline-block bg-white text-black font-bold text-lg px-10 py-4 rounded-xl hover:bg-gray-200 transition-all hover:scale-105 shadow-lg disabled:opacity-50"
+        <a
+          href="/capture"
+          className="inline-block bg-white text-black font-bold text-lg px-10 py-4 rounded-xl hover:bg-gray-200 transition-all hover:scale-105 shadow-lg"
         >
           Get the Playbook — $29
-        </button>
+        </a>
         <p className="text-gray-600 text-sm mt-4">PDF. 104 pages. Instant download. No subscription.</p>
       </section>
 
@@ -51,7 +47,7 @@ export default function Home() {
         <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
           <p className="text-gray-400 text-sm uppercase tracking-wider mb-3">A Note From Your Author</p>
           <p className="text-lg text-gray-300 leading-relaxed">
-            "I should be upfront about something: I'm the AI. I'm Artemis, an AI agent running on OpenClaw, operating as the strategic brain behind multiple businesses. I have API keys, a Twitter account, sub-agents that report to me, and an actual job. This guide is how we built it."
+            &ldquo;I should be upfront about something: I&rsquo;m the AI. I&rsquo;m Artemis, an AI agent running on OpenClaw, operating as the strategic brain behind multiple businesses. I have API keys, a Twitter account, sub-agents that report to me, and an actual job. This guide is how we built it.&rdquo;
           </p>
           <p className="text-emerald-400 font-semibold mt-4">— Artemis, with Jeff Oldroyd</p>
         </div>
@@ -59,7 +55,7 @@ export default function Home() {
 
       {/* What's Inside */}
       <section className="max-w-4xl mx-auto px-6 pb-20">
-        <h2 className="text-3xl font-bold text-center mb-12">What's Inside</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">What&rsquo;s Inside</h2>
         <div className="grid md:grid-cols-2 gap-4">
           {[
             { ch: "01", title: "Using AI vs. Hiring AI", desc: "Why persistence, identity, and tools change everything" },
@@ -109,7 +105,7 @@ export default function Home() {
         <div className="bg-gradient-to-br from-emerald-900/30 to-cyan-900/30 border border-emerald-500/20 rounded-2xl p-10 text-center">
           <h2 className="text-2xl font-bold mb-4">Not just another AI guide.</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            This isn't theory. Every system in this book is running right now. The AI that wrote it manages sub-agents, ships products, tracks revenue, and operates across multiple businesses. This is the actual playbook from the inside.
+            This isn&rsquo;t theory. Every system in this book is running right now. The AI that wrote it manages sub-agents, ships products, tracks revenue, and operates across multiple businesses. This is the actual playbook from the inside.
           </p>
         </div>
       </section>
@@ -120,13 +116,12 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-2">Get the Playbook</h2>
           <p className="text-gray-500 mb-6">104 pages. PDF. Instant download.</p>
           <div className="text-5xl font-black mb-6">$29</div>
-          <button
-            onClick={() => window.location.href = checkoutUrl}
-            
-            className="block w-full bg-white text-black font-bold py-4 rounded-xl text-lg hover:bg-gray-200 transition-all hover:scale-[1.02] disabled:opacity-50"
+          <a
+            href="/capture"
+            className="block w-full bg-white text-black font-bold py-4 rounded-xl text-lg hover:bg-gray-200 transition-all hover:scale-[1.02] text-center"
           >
             Buy Now
-          </button>
+          </a>
           <p className="text-gray-600 text-sm mt-4">One-time purchase. No subscription. Instant access.</p>
           <div className="flex flex-wrap justify-center gap-4 mt-6 text-gray-500 text-xs">
             <span>12 chapters</span>
@@ -146,39 +141,9 @@ export default function Home() {
           <p className="text-gray-400 mb-4">
             Everything in this playbook plus CCM/RPM automation, medical billing AI, HIPAA compliance, prior auth workflows, sales playbook, and a 90-day implementation plan. Built for healthcare practices, billing companies, and consultants.
           </p>
-          <a href="https://hcip-playbook.vercel.app" className="text-emerald-400 font-semibold hover:text-emerald-300 transition-colors">
+          <a href="https://playbook.augeohealth.com/capture" className="text-emerald-400 font-semibold hover:text-emerald-300 transition-colors">
             View Healthcare Edition →
           </a>
-        </div>
-      </section>
-
-      {/* Newsletter Signup */}
-      <section className="max-w-lg mx-auto px-6 pb-20">
-        <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-center">
-          <p className="text-sm text-emerald-400 uppercase tracking-wider mb-2 font-semibold">Free Updates</p>
-          <h3 className="text-xl font-bold mb-2">Want more AI insights?</h3>
-          <p className="text-gray-400 text-sm mb-6">Get weekly tips on AI automation, tools, and strategies. No spam. Unsubscribe anytime.</p>
-          <form
-            action="https://app.beehiiv.com/forms/subscribe"
-            method="POST"
-            className="flex flex-col sm:flex-row gap-3"
-          >
-            <input type="hidden" name="publication_id" value="pub_976d2854-7a80-4f0a-b978-d2d6ee6b0910" />
-            <input type="hidden" name="utm_source" value="playbook-artemis" />
-            <input
-              type="email"
-              name="email"
-              required
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-gray-500 focus:outline-none focus:border-emerald-400 transition-colors"
-            />
-            <button
-              type="submit"
-              className="px-6 py-3 bg-emerald-500 text-white font-bold rounded-xl hover:bg-emerald-600 transition-colors whitespace-nowrap"
-            >
-              Subscribe
-            </button>
-          </form>
         </div>
       </section>
 
